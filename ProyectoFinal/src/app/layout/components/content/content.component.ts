@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Alumnos } from 'src/app/models/alumnos';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarAlumnosDialogComponent } from '../editar-alumnos-dialog/editar-alumnos-dialog.component';
 
 @Component({
   selector: 'app-content',
@@ -73,5 +75,16 @@ export class ContentComponent {
   dataSource: MatTableDataSource<Alumnos> = new MatTableDataSource<Alumnos>(this.alumnos);
   columnas: string[] = ['nombre', 'email', 'ci', 'domicilio', 'telefono', 'acciones'];
 
+  constructor(
+    private dialog: MatDialog
+  ){
+
+  }
+
+  abrirModal(alumno: Alumnos){
+    const dialogRef = this.dialog.open(EditarAlumnosDialogComponent, {
+      data: alumno
+    });
+  }
 
 }
