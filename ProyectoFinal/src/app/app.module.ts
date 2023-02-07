@@ -7,13 +7,18 @@ import { MaterialModule } from './material.module';
 import { ToolbarComponent } from './layout/components/toolbar/toolbar.component';
 
 import { ContentComponent } from './layout/components/content/content.component';
+import { ConcatenarNombreApellidoPipe } from './pipes/concatenar-nombre-apellido.pipe';
+import { TamanoTitulosDirective } from './directives/tamano-titulos.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
 
     ToolbarComponent,
-    ContentComponent
+    ContentComponent,
+    ConcatenarNombreApellidoPipe,
+    TamanoTitulosDirective
   ],
   imports: [
     BrowserModule,
