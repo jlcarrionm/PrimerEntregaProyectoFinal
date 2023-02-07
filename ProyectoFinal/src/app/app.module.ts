@@ -21,7 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TamanoTitulosDirective,
     EditarAlumnosDialogComponent
 
+
   ],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
