@@ -1,3 +1,5 @@
+<app-editar-alumnos-dialog (eventoSalidaAlumno)="actualizarAlumnoPadre($event)"></app-editar-alumnos-dialog>
+
 <table mat-table [dataSource]="dataSource">
     <!-- Columna de nombre -->
     <ng-container matColumnDef="nombre">
@@ -45,4 +47,6 @@
 
     <tr mat-header-row *matHeaderRowDef="columnas"></tr>
     <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+
+
 </table>

@@ -87,4 +87,9 @@ export class ContentComponent {
     });
   }
 
+  actualizarAlumnoPadre(alumno: Alumnos){
+console.log("Alumno", alumno);
+
+  }
+
 }
