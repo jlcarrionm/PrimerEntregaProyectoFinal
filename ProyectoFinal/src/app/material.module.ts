@@ -6,8 +6,8 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule} from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatDialogModule  } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatListModule,
     MatTableModule,
     MatDialogModule
+
   ],
   exports:[
     MatButtonModule,
@@ -29,5 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     MatDialogModule
   ]
+  ,
+
+
 })
 export class MaterialModule { }

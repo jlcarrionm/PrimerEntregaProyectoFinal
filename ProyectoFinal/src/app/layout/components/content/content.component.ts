@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Alumnos } from 'src/app/models/alumnos';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+
+import { Alumnos } from 'src/app/models/alumnos';
 import { EditarAlumnosDialogComponent } from '../editar-alumnos-dialog/editar-alumnos-dialog.component';
 
 @Component({
@@ -10,6 +11,8 @@ import { EditarAlumnosDialogComponent } from '../editar-alumnos-dialog/editar-al
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
+  alumnoSeleccionado!: Alumnos;
+
   alumnos: Alumnos[] = [
     {
       nombre: 'Jose',
@@ -18,7 +21,7 @@ export class ContentComponent {
       ci: '0927509118',
       domicilio: 'Guayaquil',
       telefono: '042344710',
-      cursos: {
+     /*  cursos: {
         nombre: 'Angular',
         comision: '49533',
         profesor: {
@@ -29,7 +32,7 @@ export class ContentComponent {
       fechaInicio: new Date(2023, 0, 1, 20, 30, 0),
       fechaFin: new Date(2023, 0, 31, 20, 30, 0),
       inscripcionAbierta: true
-      },
+      }, */
     },
     {
       nombre: 'Luciana',
@@ -38,7 +41,7 @@ export class ContentComponent {
       ci: '0927509999',
       domicilio: 'Ambato',
       telefono: '042344711',
-      cursos: {
+      /* cursos: {
         nombre: 'Ionic',
         comision: '49999',
         profesor: {
@@ -49,7 +52,7 @@ export class ContentComponent {
       fechaInicio: new Date(2023, 0, 1, 20, 30, 0),
       fechaFin: new Date(2023, 0, 31, 20, 30, 0),
       inscripcionAbierta: true
-      },
+      }, */
     },
     {
       nombre: 'Sara',
@@ -58,7 +61,7 @@ export class ContentComponent {
       ci: '2315486987',
       domicilio: 'Guayaquil',
       telefono: '042458796',
-      cursos: {
+     /*  cursos: {
         nombre: 'SQL',
         comision: '50000',
         profesor: {
@@ -69,7 +72,7 @@ export class ContentComponent {
       fechaInicio: new Date(2023, 0, 1, 20, 30, 0),
       fechaFin: new Date(2023, 0, 31, 20, 30, 0),
       inscripcionAbierta: true
-      },
+      }, */
     }
   ]
   dataSource: MatTableDataSource<Alumnos> = new MatTableDataSource<Alumnos>(this.alumnos);
@@ -81,14 +84,28 @@ export class ContentComponent {
 
   }
 
-  abrirModal(alumno: Alumnos){
+  abrirModal(alumno: any){
+    this.alumnoSeleccionado = this.alumnos[this.alumnos.findIndex((alumnoActual) => alumnoActual.ci === alumno.ci)];
+    console.log("Alumno", this.alumnoSeleccionado)
     const dialogRef = this.dialog.open(EditarAlumnosDialogComponent, {
       data: alumno
     });
   }
 
   actualizarAlumnoPadre(alumno: Alumnos){
-console.log("Alumno", alumno);
+    this.alumnos[this.alumnos.findIndex((alumnoActual) => alumnoActual.ci === this.alumnoSeleccionado.ci)] = alumno;
+    console.log("Alumno", alumno);
+
+  }
+
+
+  eliminarRegistro(ci: any){
+
+    console.log("cedula", ci)
+
+    delete  this.alumnos[this.alumnos.findIndex((alumnoActual) => alumnoActual.ci === ci)]
+
+    console.log("Delete", this.alumnos)
 
   }
 

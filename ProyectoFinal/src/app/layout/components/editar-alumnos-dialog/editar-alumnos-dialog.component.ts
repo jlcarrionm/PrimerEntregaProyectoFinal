@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Optional, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Alumnos } from '../../../models/alumnos';
@@ -13,8 +13,8 @@ export class EditarAlumnosDialogComponent {
   @Output() eventoSalidaAlumno:  EventEmitter<Alumnos> = new  EventEmitter<Alumnos>;
 
   constructor(
-    private dialogRef: MatDialogRef<EditarAlumnosDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Alumnos
+    @Optional() public dialogRef: MatDialogRef<EditarAlumnosDialogComponent>,
+    @Inject( MAT_DIALOG_DATA) public data: Alumnos
   ){
     this.formulario = new FormGroup({
       nombre: new FormControl(data.nombre ),
@@ -35,7 +35,7 @@ export class EditarAlumnosDialogComponent {
     ci: this.formulario.get('ci')?.value,
     domicilio: this.formulario.get('domicilio')?.value,
     telefono: this.formulario.get('telefono')?.value,
-    cursos: {
+   /*  cursos: {
       nombre: 'SQL',
       comision: '50000',
       profesor: {
@@ -46,10 +46,7 @@ export class EditarAlumnosDialogComponent {
     fechaInicio: new Date(2023, 0, 1, 20, 30, 0),
     fechaFin: new Date(2023, 0, 31, 20, 30, 0),
     inscripcionAbierta: true
-   }
-
-
-
+   } */
 
    }
 

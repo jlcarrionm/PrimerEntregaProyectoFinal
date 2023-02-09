@@ -7,5 +7,5 @@ export interface Alumnos {
   ci: string;
   domicilio: string;
   telefono: string;
-  cursos: Cursos;
+ /*  cursos: Cursos; */
 }

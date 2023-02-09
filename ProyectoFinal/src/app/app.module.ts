@@ -12,6 +12,7 @@ import { TamanoTitulosDirective } from './directives/tamano-titulos.directive';
 import { EditarAlumnosDialogComponent } from './layout/components/editar-alumnos-dialog/editar-alumnos-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TamanoTitulosDirective,
     EditarAlumnosDialogComponent
 
-
   ],
 
   imports: [
@@ -30,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
+
 
   ],
   providers: [],
