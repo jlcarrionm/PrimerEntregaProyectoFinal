@@ -15,6 +15,7 @@ export class EditarAlumnosDialogComponent {
   constructor(
     @Optional() public dialogRef: MatDialogRef<EditarAlumnosDialogComponent>,
     @Inject( MAT_DIALOG_DATA) public data: Alumnos
+
   ){
     this.formulario = new FormGroup({
       nombre: new FormControl(data.nombre ),
@@ -53,5 +54,6 @@ export class EditarAlumnosDialogComponent {
 
    this.eventoSalidaAlumno.emit(alumno);
    console.log(alumno);}
+
 
 }

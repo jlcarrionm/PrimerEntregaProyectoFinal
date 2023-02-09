@@ -94,7 +94,8 @@ export class ContentComponent {
 
   actualizarAlumnoPadre(alumno: Alumnos){
     this.alumnos[this.alumnos.findIndex((alumnoActual) => alumnoActual.ci === this.alumnoSeleccionado.ci)] = alumno;
-    console.log("Alumno", alumno);
+    console.log("AlumnoActulizado", alumno);
+
 
   }
 
