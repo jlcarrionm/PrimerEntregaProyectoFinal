@@ -1,6 +1,31 @@
 <h1 mat-dialog-title>Editar Alumno</h1>
 <div mat-dialog-content>
-    <form [formGroup]="formulario">
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="data.nombre">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input matInput [(ngModel)]="data.apellido">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="data.email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Cedula</mat-label>
+        <input matInput [(ngModel)]="data.ci">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Domicilio</mat-label>
+        <input matInput [(ngModel)]="data.domicilio">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Telefono</mat-label>
+        <input matInput [(ngModel)]="data.telefono">
+    </mat-form-field>
+
+    <!--  <form [formGroup]="formulario">
         <div class="row">
 
             <input type="text" placeholder="Nombre" formControlName="nombre">
@@ -21,8 +46,8 @@
             <input type="text" placeholder="Telefono" formControlName="telefono">
         </div>
     </form>
-</div>
-<div mat-dialog-actions>
-    <button mat-button>Cerrar</button>
-    <button mat-flat-button (click)="editarAlumno()">Editar</button>
-</div>
+</div> -->
+    <div mat-dialog-actions>
+        <button mat-button>Cerrar</button>
+        <button mat-flat-button [mat-dialog-close]="data" cdkFocusInitial>Editar</button>
+    </div>

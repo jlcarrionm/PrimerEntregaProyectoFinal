@@ -9,7 +9,7 @@ import { Alumnos } from '../../../models/alumnos';
   styleUrls: ['./editar-alumnos-dialog.component.css']
 })
 export class EditarAlumnosDialogComponent {
-  formulario: FormGroup;
+  /* formulario: FormGroup; */
   @Output() eventoSalidaAlumno:  EventEmitter<Alumnos> = new  EventEmitter<Alumnos>;
 
   constructor(
@@ -17,7 +17,7 @@ export class EditarAlumnosDialogComponent {
     @Inject( MAT_DIALOG_DATA) public data: Alumnos
 
   ){
-    this.formulario = new FormGroup({
+   /*  this.formulario = new FormGroup({
       nombre: new FormControl(data.nombre ),
       apellido: new FormControl(data.apellido),
       email: new FormControl(data.email),
@@ -25,10 +25,10 @@ export class EditarAlumnosDialogComponent {
       domicilio: new FormControl(data.domicilio),
       telefono: new FormControl(data.telefono),
     });
-    console.log("holsa");
+    console.log("holsa"); */
   }
 
-  editarAlumno(){
+  /* editarAlumno(){
    let alumno: Alumnos = {
     nombre: this.formulario.get('nombre')?.value,
     apellido: this.formulario.get('apellido')?.value,
@@ -36,7 +36,7 @@ export class EditarAlumnosDialogComponent {
     ci: this.formulario.get('ci')?.value,
     domicilio: this.formulario.get('domicilio')?.value,
     telefono: this.formulario.get('telefono')?.value,
-   /*  cursos: {
+     cursos: {
       nombre: 'SQL',
       comision: '50000',
       profesor: {
@@ -47,13 +47,13 @@ export class EditarAlumnosDialogComponent {
     fechaInicio: new Date(2023, 0, 1, 20, 30, 0),
     fechaFin: new Date(2023, 0, 31, 20, 30, 0),
     inscripcionAbierta: true
-   } */
-
    }
 
+   }
+ */
 
-   this.eventoSalidaAlumno.emit(alumno);
-   console.log(alumno);}
+   /* this.eventoSalidaAlumno.emit(alumno);
+   console.log('editarAlumno',alumno);} */
 
 
 }
