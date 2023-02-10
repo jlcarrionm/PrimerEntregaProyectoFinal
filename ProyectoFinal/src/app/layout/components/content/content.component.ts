@@ -79,7 +79,7 @@ export class ContentComponent {
   columnas: string[] = ['nombre', 'email', 'ci', 'domicilio', 'telefono', 'acciones'];
 
   constructor(
-    private dialog: MatDialog
+    public dialog: MatDialog
   ){
 
   }
@@ -90,14 +90,25 @@ export class ContentComponent {
     const dialogRef = this.dialog.open(EditarAlumnosDialogComponent, {
       data: alumno
     });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+     // console.log("AlumnoActulizado", result);
+     // console.log("AlumnoActulizadoSeleccionado", this.alumnoSeleccionado);
+
+      this.alumnos[this.alumnos.findIndex((alumnoActual) => alumnoActual.ci === this.alumnoSeleccionado.ci)] = result;
+    // console.log("AlumnoActulizado", this.alumnos);
+    })
   }
 
-  actualizarAlumnoPadre(alumno: Alumnos){
+ /*  actualizarAlumnoPadre(alumno: Alumnos){
     this.alumnos[this.alumnos.findIndex((alumnoActual) => alumnoActual.ci === this.alumnoSeleccionado.ci)] = alumno;
     console.log("AlumnoActulizado", alumno);
 
 
-  }
+  } *//*  */
+
+
 
 
   eliminarRegistro(ci: any){
